@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> OSA24.ee </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <input type ="checkbox" name ="" id ="chk1">
+        <a href="veebileht.html">
         <div class="logo"><img src="logo.svg"></div>
             <div class="search-box">
                 <form>
@@ -21,7 +22,7 @@
             <ul>
                 <li><a href="mootoriosad.html">Mootorid</a></li>
                 <li><a href="Elektroonika.html">Elektroonika</a></li>
-                <li><a href="Kere.html">Kere</a></li>
+                <li><a href="kere.html">Kere</a></li>
                 <li><a href="Kontakt.html">Kontakt</a></li>
                 <li>
                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -39,37 +40,96 @@
         </div>
     </header>
     <main>
+        <!-- Slideshow div ja navigeerimisnupud jms-->
+
+        <div class="slideContainer">
+            
+            <div class="Slide">
+                <img src="pildid/logod.png" />
+            </div>
+            <div class="Slide">
+                <img src="pildid/wholecar.jpg" />
+            </div>
+            <a class="prevBtn">❮</a>
+            <a class="nextBtn">❯</a>
+            </div>
+            <br />
+            <div style="text-align:center">
+            <span class="Navdot" onclick="currentSlide(1)"></span>
+            <span class="Navdot" onclick="currentSlide(2)"></span>
+            <span class="Navdot" onclick="currentSlide(3)"></span>
+            </div>
+            <!--Järgneva javascripti skripti autor on Amit Diwan - https://www.tutorialspoint.com/answers/amitdiwan -->
+            <script>
+                document.querySelector(".prevBtn").addEventListener("click", () => {
+                    changeSlides(-1);
+                });
+                document.querySelector(".nextBtn").addEventListener("click", () => {
+                    changeSlides(1);
+                });
+                var slideIndex = 1;
+                showSlides(slideIndex);
+                function changeSlides(n) {
+                    showSlides((slideIndex += n));
+                }
+                function currentSlide(n) {
+                    showSlides((slideIndex = n));
+                }
+                function showSlides(n) {
+                    var i;
+                    var slides = document.getElementsByClassName("Slide");
+                    var dots = document.getElementsByClassName("Navdot");
+                    if (n > slides.length) {
+                        slideIndex = 1;
+                    }
+                    if (n < 1) {
+                        slideIndex = slides.length;
+                    }
+                    Array.from(slides).forEach(item => (item.style.display = "none"));
+                    Array.from(dots).forEach(
+                        item => (item.className = item.className.replace(" selected", ""))
+                    );
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " selected";
+                }
+            </script>
+    
+                 
+        <!--Esiletõstetud tooted-->    
         <div class="container">
             <div class="featured">
                 <h1>Esiletõstetud tooted</h1>
                 
             </div>
             <div class="gallerys">
-                <img src="pildid/kliimapaneel1.jpg" alt="pilt1" style="width:250px;height:300px;">
-                <figcaption> Audi A4 2007 Kliimapaneel </figcaption>
+                <a href="a4kliimapaneel.html">
+                    <img src="pildid/kliimapaneel1.jpg" alt="pilt1" style="width:250px;height:300px;">
+                    <figcaption> Audi A4 2007 Kliimapaneel </figcaption>
+                </a>
+                    
             </div>
             <div class="gallerys">
-                <img src="pildid/kliimapaneel2.jpg" alt="pilt1" style="width:250px;height:300px;">
-                <figcaption> BMW E39 Kliimapaneel </figcaption>
+                <a href="bmwkliimapaneel.html">
+                    <img src="pildid/kliimapaneel2.jpg" alt="pilt1" style="width:250px;height:300px;">
+                    <figcaption> BMW E39 Kliimapaneel </figcaption>
+                </a>
             </div>
             <div class="gallerys">
-                <img src="pildid/relee1.jpg" alt="pilt1" style="width:250px;height:300px;">
-                <figcaption> Volkswagen Sharan 2000 Relee </figcaption>
+                <a href="sharankliimapaneel.html">
+                    <img src="pildid/relee1.jpg" alt="pilt1" style="width:250px;height:300px;">
+                    <figcaption> Volkswagen Sharan 2000 Relee </figcaption>
+                </a>
+                
             </div>
             <div class="gallerys">
-                <img src="pildid/relee2.jpg" alt="pilt1" style="width:250px;height:300px;">
-                <figcaption> Volkswagen Golf 1994 Relee </figcaption>
+                <a href="golfrelee.html">
+                    <img src="pildid/relee2.jpg" alt="pilt1" style="width:250px;height:300px;">
+                    <figcaption> Volkswagen Golf 1994 Relee </figcaption>
+                </a>
             </div>
-            <div class="gallerys">
-                <img src="pildid/rool1.jpg" alt="pilt1" style="width:250px;height:300px;">
-                <figcaption> Audi A6 2002 Rool </figcaption>
-            </div>
-            <div class="gallerys">
-                <img src="pildid/rool2.jpg" alt="pilt1" style="width:250px;height:300px;">
-                <figcaption> Volvo V70 2004 Rool </figcaption>
-            </div>
+            
         </div>
     </main>
-   
+  
 </body>
 </html>
